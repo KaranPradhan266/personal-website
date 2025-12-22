@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const words = ["growing", "evolving", "progressing", "learning", "refining"];
-const maxWordLength = Math.max(...words.map((word) => word.length));
 
 export default function About() {
   const [index, setIndex] = useState(0);

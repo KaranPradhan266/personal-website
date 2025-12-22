@@ -1,12 +1,14 @@
 import Image from "next/image";
 import About from "./components/about/About";
+import Experience from "./components/experience/Experience";
 
 export default function Home() {
   return (
+    <>
     <section className="flex flex-col items-center space-y-6 text-center">
       <Image
-        src="/snorPc.png"
-        alt="Snorlax"
+        src="/snorlax.png"
+        alt="Snorlax.png"
         width={640}
         height={640}
         className="h-auto w-full max-w-md"
@@ -18,7 +20,9 @@ export default function Home() {
           hustling to be a cracked Engineer
         </span>
       </div>
-      <About />
     </section>
+    <About />
+    <Experience />
+    </>
   );
 }
