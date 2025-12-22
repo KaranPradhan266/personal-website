@@ -55,7 +55,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="relative pt-6 md:pt-[18px]"
             initial={reduceMotion ? false : { opacity: 0 }}
             whileInView={reduceMotion ? undefined : { opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.0, ease: "easeInOut" }}
           >
             <div className="h-10 absolute left-3 w-10 rounded-full bg-background flex items-center justify-center">
