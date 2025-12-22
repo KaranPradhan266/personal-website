@@ -1,4 +1,5 @@
 import Image from "next/image";
+import About from "./components/about/About";
 
 export default function Home() {
   return (
@@ -11,13 +12,13 @@ export default function Home() {
         className="h-auto w-full max-w-md"
         priority
       />
-      <div className="inline-flex items-center rounded-xl border border-border/70 bg-foreground/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-foreground">
+      <div className="flex w-full items-center justify-center rounded-xl border border-border/70 bg-foreground/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-foreground">
         24, Software Engineer ·{" "}
         <span className="ml-2 rounded-lg border border-foreground/30 px-2.5 py-1 shadow-[0_0_12px_rgba(255,255,255,0.15)]">
           hustling to be a cracked Engineer
         </span>
       </div>
-      <h1>hello world</h1>
+      <About />
     </section>
   );
 }
