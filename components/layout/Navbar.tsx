@@ -7,8 +7,11 @@ import { Menu, Moon, PawPrint, Sun, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/open-source", label: "Open Source" },
+  { href: "/writing", label: "Writings" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
