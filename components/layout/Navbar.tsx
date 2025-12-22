@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, Moon, PawPrint, Sun, X } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/open-source", label: "Open Source" },
@@ -56,7 +58,7 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="relative flex items-center gap-2">
             <button
               type="button"
               aria-label="Toggle theme"
@@ -82,13 +84,15 @@ export default function Navbar() {
                 <Menu className="size-4" aria-hidden="true" />
               )}
             </button>
-          </div>
-        </div>
-        {menuOpen ? (
-          <div className="md:hidden">
             <nav
               aria-label="Mobile"
-              className="absolute right-0 top-14 z-10 w-56 rounded-2xl border border-border/60 bg-background/70 px-4 py-4 shadow-lg backdrop-blur"
+              aria-hidden={!menuOpen}
+              className={cn(
+                "absolute right-0 top-12 z-10 w-56 rounded-2xl border border-border/60 bg-background/70 px-4 py-4 shadow-lg backdrop-blur transition-all duration-200 ease-out md:hidden",
+                menuOpen
+                  ? "translate-y-0 opacity-100 delay-75"
+                  : "-translate-y-2 opacity-0 pointer-events-none"
+              )}
             >
               <div className="flex flex-col gap-3 text-base font-medium">
                 {navLinks.map((link) => (
@@ -104,7 +108,7 @@ export default function Navbar() {
               </div>
             </nav>
           </div>
-        ) : null}
+        </div>
       </div>
     </header>
   );
