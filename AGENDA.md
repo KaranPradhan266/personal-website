@@ -38,6 +38,14 @@
 - Testimonials (optional)
 
 ## Design + UX
+- Centered, single-column editorial layout
+- Content constrained to 640-720px max width
+- Large negative space on both sides; no multi-column grids
+- Calm, minimal, senior-engineer aesthetic
+- Dark mode by default
+- Strong typography hierarchy (clear h1, h2, body rhythm)
+- Vertical stacking of sections (no cards, no masonry)
+- No heavy gradients, no glassmorphism, no flashy effects
 - Mobile-first layout
 - Clear typography and spacing
 - Strong visual hierarchy

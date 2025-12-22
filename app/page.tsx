@@ -1,18 +1,18 @@
-import About from "./components/about/About";
-import Hero from "./components/hero/Hero";
-import { SkeletonDemo } from "./components/skeleton/SkeletonDemo";
-import { Spinner } from "@/components/ui/spinner";
-import { Calendar01 } from "./components/calender/calendar-01";
+import { Heading1 } from "lucide-react";
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <SkeletonDemo />
-      <Calendar01 />
-      <div className="py-8">
-        <Spinner className="size-6 text-zinc-500" />
-      </div>
-    </main>
+    <section className="flex flex-col items-center space-y-6 text-center">
+      <Image
+        src="/snorPc.png"
+        alt="Snorlax"
+        width={640}
+        height={640}
+        className="h-auto w-full max-w-md"
+        priority
+      />
+      <h1>hello world</h1>
+    </section>
   );
 }

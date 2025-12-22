@@ -84,7 +84,7 @@
 }
 
 .dark {
-  --background: oklch(0.13 0.028 261.692);
+  --background: #0D0D0D;
   --foreground: oklch(0.985 0.002 247.839);
   --card: oklch(0.21 0.034 264.665);
   --card-foreground: oklch(0.985 0.002 247.839);
@@ -123,5 +123,26 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply text-4xl font-semibold leading-tight tracking-tight sm:text-5xl;
+  }
+  h2 {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  }
+  h3 {
+    @apply text-xl font-semibold tracking-tight sm:text-2xl;
+  }
+  h4 {
+    @apply text-lg font-semibold tracking-tight sm:text-xl;
+  }
+  h5 {
+    @apply text-base font-semibold tracking-tight sm:text-lg;
+  }
+  h6 {
+    @apply text-sm font-semibold tracking-tight sm:text-base;
+  }
+  p {
+    @apply text-base leading-relaxed text-muted-foreground sm:text-lg;
   }
 }
