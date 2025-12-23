@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <section className="flex flex-col items-center space-y-6 text-center">
       <video
-        className="h-auto w-full max-w-xl rounded-2xl brightness-95 drop-shadow-[0_20px_80px_rgba(0,0,0,0.45)] [mask-image:radial-gradient(circle,#000_68%,transparent_100%)] [-webkit-mask-image:radial-gradient(circle,#000_68%,transparent_100%)]"
+        className="h-auto w-full max-w-xl rounded-2xl border border-white/10 brightness-95 shadow-[0_0_24px_rgba(255,255,255,0.14),_0_20px_80px_rgba(0,0,0,0.45)] [mask-image:radial-gradient(circle,#000_68%,transparent_100%)] [-webkit-mask-image:radial-gradient(circle,#000_68%,transparent_100%)]"
         autoPlay
         loop
         muted

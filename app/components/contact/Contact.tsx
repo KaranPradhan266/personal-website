@@ -6,7 +6,7 @@ export function Contact() {
     <section aria-label="Contact" className="space-y-6 text-left">
       <div className="divide-y divide-border/60">
         <a
-          href="mailto:hi@jacobvos.com"
+          href="mailto:karanpradhan266@gmail.com"
           className="flex items-center justify-between gap-4 py-4 text-muted-foreground transition-colors hover:text-foreground"
         >
           <div className="flex items-center gap-3">
