@@ -24,7 +24,7 @@ export default function SmoothScroll() {
         if (data.event.type !== "wheel") {
           return;
         }
-        const step = 8;
+        const step = 10;
         const direction = Math.sign(data.deltaY || data.deltaX);
         if (direction === 0) {
           return;
