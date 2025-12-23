@@ -13,11 +13,27 @@ export default function SmoothScroll() {
     }
 
     const lenis = new Lenis({
-      lerp: 0.08,
+      duration: 1.8,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      lerp: 0.1,
       smoothWheel: true,
       syncTouch: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.1,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+      virtualScroll: (data) => {
+        if (data.event.type !== "wheel") {
+          return;
+        }
+        const step = 8;
+        const direction = Math.sign(data.deltaY || data.deltaX);
+        if (direction === 0) {
+          return;
+        }
+        data.deltaY = direction * step;
+        if (data.deltaX) {
+          data.deltaX = direction * step;
+        }
+      },
     });
 
     const raf = (time: number) => {
