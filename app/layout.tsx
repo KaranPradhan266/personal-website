@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
-import SmoothScroll from "@/components/layout/SmoothScroll";
 
 import "./globals.css";
 
@@ -30,7 +29,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SmoothScroll />
         <div className="min-h-screen bg-background text-foreground">
           <Navbar />
           <main className="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:px-8 sm:py-24">
