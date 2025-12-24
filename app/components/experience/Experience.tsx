@@ -96,8 +96,37 @@ export default function Experience() {
       <h3 className="inline-block border-b-2 border-foreground/60 pb-1">
         Experience
       </h3>
-      <div className="relative w-full overflow-clip">
-        <Timeline data={data} />
+      <div className="relative w-full">
+        <div className="pointer-events-none absolute left-0 top-50 z-10 hidden -translate-x-40 items-center gap-2 text-foreground/70 md:flex">
+          <span
+            className="-rotate-2 text-2xl leading-none"
+            style={{ fontFamily: "var(--font-handwritten)" }}
+          >
+            My current job!
+          </span>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 120 32"
+            className="h-5 w-24 -rotate-6 text-foreground/60"
+            fill="none"
+          >
+            <path
+              d="M2 24 C 36 6, 72 6, 108 16"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M108 16 L100 10 M108 16 L100 22"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+        <div className="overflow-clip">
+          <Timeline data={data} />
+        </div>
       </div>
     </section>
   );

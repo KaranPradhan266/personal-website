@@ -66,11 +66,11 @@ export default function About() {
                   height={30}
                   className="rounded-sm"
                 />
-                Masters in Computer Science, Santa Clara University
+                Master of Science, Santa Clara University
               </h4>
             </div>
             <p className="text-sm font-medium text-teal-300">
-              Distributed Systems · Advance Operating System · 2023–2025
+              Computer Science and Engineering · 2023–2025
             </p>
           </div>
           <div className="space-y-2">

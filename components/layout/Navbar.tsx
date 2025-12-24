@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/open-source", label: "Open Source" },
-  { href: "/writing", label: "Writings" },
+  { href: "https://www.analyticsvidhya.com/blog/author/karanpradhan266/", label: "Writings" },
   { href: "/contact", label: "Contact" },
 ];
 
