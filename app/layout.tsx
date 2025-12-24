@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Caveat, Geist, Geist_Mono } from "next/font/google";
+import LoadingGate from "@/components/layout/LoadingGate";
 import Navbar from "@/components/layout/Navbar";
 
 import "./globals.css";
@@ -34,12 +35,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >
-        <div className="min-h-screen bg-background text-foreground">
-          <Navbar />
-          <main className="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:px-8 sm:py-24">
-            {children}
-          </main>
-        </div>
+        <LoadingGate delayMs={3000}>
+          <div className="min-h-screen bg-background text-foreground">
+            <Navbar />
+            <main className="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:px-8 sm:py-24">
+              {children}
+            </main>
+          </div>
+        </LoadingGate>
       </body>
     </html>
   );
