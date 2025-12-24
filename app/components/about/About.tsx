@@ -30,7 +30,7 @@ export default function About() {
 
   return (
     <section id="about" aria-label="About" className="space-y-4 text-left">
-      <h2 className="text-[#F9FAFB]">Karan Pradhan</h2>
+      <h2 className="text-[#F9FAFB] text-4xl sm:text-5xl">Karan Pradhan</h2>
       <div className="flex items-start justify-between gap-4">
         <p className="text-foreground">
           Building thoughtfully,
