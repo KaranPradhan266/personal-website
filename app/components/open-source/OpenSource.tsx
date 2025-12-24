@@ -1,13 +1,47 @@
 import Image from "next/image";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 const logos = [
-  { src: "/open-source-logo/meta.png", alt: "Meta" },
-  { src: "/open-source-logo/microsoft.png", alt: "Microsoft" },
-  { src: "/open-source-logo/supabase.png", alt: "Supabase" },
-  { src: "/open-source-logo/apache-rg.png", alt: "Apache" },
-  { src: "/open-source-logo/bruno-rg.png", alt: "Bruno" },
-  { src: "/open-source-logo/firefox-rg.png", alt: "Firefox" },
-  { src: "/open-source-logo/posthog-rg.png", alt: "PostHog" },
+  {
+    src: "/open-source-logo/meta.png",
+    alt: "Meta",
+    url: "https://github.com/facebook/pyrefly",
+  },
+  {
+    src: "/open-source-logo/microsoft.png",
+    alt: "Microsoft",
+    url: "https://github.com/microsoft/data-formulator",
+  },
+  {
+    src: "/open-source-logo/supabase.png",
+    alt: "Supabase",
+    url: "https://github.com/supabase/stripe-sync-engine",
+  },
+  {
+    src: "/open-source-logo/apache-rg.png",
+    alt: "Apache",
+    url: "https://github.com/apache/datafusion",
+  },
+    {
+    src: "/open-source-logo/streamlit.png",
+    alt: "Streamlit",
+    url: "https://github.com/streamlit/streamlit",
+  },
+  {
+    src: "/open-source-logo/bruno-rg.png",
+    alt: "Bruno",
+    url: "https://github.com/usebruno/bruno",
+  },
+  {
+    src: "/open-source-logo/firefox-rg.png",
+    alt: "Firefox",
+    url: "https://github.com/firefox-devtools/profiler",
+  },
+  {
+    src: "/open-source-logo/posthog-rg.png",
+    alt: "PostHog",
+    url: "https://github.com/PostHog/posthog",
+  },
 ];
 
 export default function OpenSource() {
@@ -35,13 +69,18 @@ export default function OpenSource() {
             key={logo.src}
             className="flex h-[96px] items-center justify-center"
           >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={160}
-              height={72}
-              className="h-[72px] w-auto object-contain opacity-80"
-            />
+            <LinkPreview
+              url={logo.url}
+              className="flex h-full items-center justify-center"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={160}
+                height={72}
+                className="h-[72px] w-auto object-contain opacity-80"
+              />
+            </LinkPreview>
           </div>
         ))}
       </div>
