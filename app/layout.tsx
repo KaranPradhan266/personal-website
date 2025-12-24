@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import LoadingGate from "@/components/layout/LoadingGate";
 import Navbar from "@/components/layout/Navbar";
@@ -46,6 +47,7 @@ export default function RootLayout({
             </main>
           </div>
         </LoadingGate>
+        <Analytics />
       </body>
     </html>
   );
