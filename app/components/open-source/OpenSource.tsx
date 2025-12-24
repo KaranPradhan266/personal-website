@@ -46,7 +46,11 @@ const logos = [
 
 export default function OpenSource() {
   return (
-    <section aria-label="Open source" className="space-y-6 text-left">
+    <section
+      id="open-source"
+      aria-label="Open source"
+      className="space-y-6 text-left"
+    >
       <h3 className="inline-block border-b-2 border-foreground/60 pb-1">
         Open Source Contributions
       </h3>

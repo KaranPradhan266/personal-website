@@ -3,7 +3,7 @@ import { LinkPreview } from "@/components/ui/link-preview";
  
 export function Contact() {
   return (
-    <section aria-label="Contact" className="space-y-6 text-left">
+    <section id="contact" aria-label="Contact" className="space-y-6 text-left">
       <div className="divide-y divide-border/60">
         <a
           href="mailto:karanpradhan266@gmail.com"

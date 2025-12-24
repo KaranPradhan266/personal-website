@@ -29,13 +29,13 @@ export default function About() {
   }, []);
 
   return (
-    <section aria-label="About" className="space-y-4 text-left">
-      <h2>Karan Pradhan</h2>
+    <section id="about" aria-label="About" className="space-y-4 text-left">
+      <h2 className="text-[#F9FAFB]">Karan Pradhan</h2>
       <div className="flex items-start justify-between gap-4">
         <p className="text-foreground">
           Building thoughtfully,
           <span
-            className={`ml-1 inline-block text-right font-semibold text-orange-300 transition-opacity duration-300 ease-in-out ${
+            className={`ml-1 inline-block text-right font-semibold text-[#F59E0B] transition-opacity duration-300 ease-in-out ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >

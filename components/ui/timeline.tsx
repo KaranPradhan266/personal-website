@@ -74,7 +74,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </span>
               ) : null}
               {item.designation ? (
-                <span className="mt-2 block text-sm font-medium text-foreground/80">
+                <span className="mt-2 block text-sm font-medium text-[#F59E0B]">
                   {item.designation}
                 </span>
               ) : null}
