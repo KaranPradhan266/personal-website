@@ -28,7 +28,7 @@ const logos = [
     url: "https://github.com/streamlit/streamlit",
   },
   {
-    src: "/open-source-logo/bruno.png",
+    src: "/open-source-logo/bru.png",
     alt: "Bruno",
     url: "https://github.com/usebruno/bruno",
   },
