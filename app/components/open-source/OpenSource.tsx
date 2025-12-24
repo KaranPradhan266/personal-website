@@ -3,7 +3,7 @@ import { LinkPreview } from "@/components/ui/link-preview";
 
 const logos = [
   {
-    src: "/open-source-logo/meta.png",
+    src: "/open-source-logo/Meta.png",
     alt: "Meta",
     url: "https://github.com/facebook/pyrefly",
   },
