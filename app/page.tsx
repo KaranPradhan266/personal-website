@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Highlighter } from "@/components/ui/highlighter";
 import About from "./components/about/About";
 import Experience from "./components/experience/Experience";
 import OpenSource from "./components/open-source/OpenSource";
@@ -23,9 +23,9 @@ export default function Home() {
       </div>
       <div className="flex w-full items-center justify-center rounded-xl border border-border/70 bg-foreground/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-foreground">
         24, Software Engineer ·{" "}
-        <span className="ml-2 rounded-lg border border-foreground/30 px-2.5 py-1 shadow-[0_0_12px_rgba(255,255,255,0.15)]">
+          <Highlighter action="highlight" color="#F59E0B">
           hustling to be a cracked Engineer
-        </span>
+          </Highlighter>
       </div>
     </section>
     <About />

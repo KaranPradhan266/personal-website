@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { cloneElement, isValidElement, useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from "@/components/ui/animated-modal";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -30,63 +30,85 @@ const ExperienceModal = ({
   modalDescription,
   paragraphClassName,
   after,
-}: ExperienceModalProps) => (
-  <Modal>
-    <div>
-      <p
-        className={cn(
+}: ExperienceModalProps) => {
+  const trigger = (
+    <ModalTrigger className="!px-0 !py-0 !rounded-none bg-transparent inline-flex align-text-bottom">
+      <span className="sr-only">Open details</span>
+      <ArrowUpRight
+        className="inline-block size-4 text-[#EF4444]"
+        aria-hidden="true"
+      />
+    </ModalTrigger>
+  );
+
+  const description = isValidElement(children) && children.type === "p"
+    ? cloneElement(children, {
+        className: cn(
           "text-base font-normal text-muted-foreground md:text-lg",
-          paragraphClassName
-        )}
-      >
-        {children}{" "}
-        <ModalTrigger className="!px-0 !py-0 !rounded-none bg-transparent inline-flex align-text-bottom">
-          <span className="sr-only">Open details</span>
-          <ArrowUpRight
-            className="inline-block size-4 text-[#EF4444]"
-            aria-hidden="true"
-          />
-        </ModalTrigger>
-      </p>
-      {after}
-      <ModalBody className="text-left">
-        <ModalContent className="gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            {imageSrc ? (
-              <img
-                src={imageSrc}
-                alt={imageAlt ?? ""}
-                width={32}
-                height={32}
-                className="h-8 w-8 rounded-sm object-cover"
-                loading="lazy"
-              />
-            ) : null}
-            <h3 className="text-lg md:text-3xl font-semibold text-muted-foreground">
-              {title}
-            </h3>
-          </div>
-          <span className="mt-2 inline-flex self-start rounded-md bg-orange-200/20 px-2 py-0.5 text-sm font-medium text-orange-200">
-            {date}
-          </span>
-          <span className="mt-2 block text-sm font-medium text-[#F59E0B]">
-            {designation}
-          </span>
-          <div className="mt-4 text-justify text-base">
-            <p
-              className={cn(
-                "whitespace-pre-line text-base font-normal text-muted-foreground md:text-lg",
-                paragraphClassName
-              )}
-            >
-              {modalDescription}
-            </p>
-          </div>
-        </ModalContent>
-      </ModalBody>
-    </div>
-  </Modal>
-);
+          paragraphClassName,
+          children.props.className
+        ),
+        children: (
+          <>
+            {children.props.children} {trigger}
+          </>
+        ),
+      })
+    : (
+        <p
+          className={cn(
+            "text-base font-normal text-muted-foreground md:text-lg",
+            paragraphClassName
+          )}
+        >
+          {children} {trigger}
+        </p>
+      );
+
+  return (
+    <Modal>
+      <div>
+        {description}
+        {after}
+        <ModalBody className="text-left">
+          <ModalContent className="gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {imageSrc ? (
+                <img
+                  src={imageSrc}
+                  alt={imageAlt ?? ""}
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-sm object-cover"
+                  loading="lazy"
+                />
+              ) : null}
+              <h3 className="text-lg md:text-3xl font-semibold text-muted-foreground">
+                {title}
+              </h3>
+            </div>
+            <span className="mt-2 inline-flex self-start rounded-md bg-orange-200/20 px-2 py-0.5 text-sm font-medium text-orange-200">
+              {date}
+            </span>
+            <span className="mt-2 block text-sm font-medium text-[#F59E0B]">
+              {designation}
+            </span>
+            <div className="mt-4 text-justify text-base">
+              <p
+                className={cn(
+                  "whitespace-pre-line text-base font-normal text-muted-foreground md:text-lg",
+                  paragraphClassName
+                )}
+              >
+                {modalDescription}
+              </p>
+            </div>
+          </ModalContent>
+        </ModalBody>
+      </div>
+    </Modal>
+  );
+};
 
 const data = [
   {
