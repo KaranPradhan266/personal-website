@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { cloneElement, isValidElement, useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from "@/components/ui/animated-modal";
@@ -41,19 +41,28 @@ const ExperienceModal = ({
     </ModalTrigger>
   );
 
-  const description = isValidElement(children) && children.type === "p"
-    ? cloneElement(children, {
-        className: cn(
-          "text-base font-normal text-muted-foreground md:text-lg",
-          paragraphClassName,
-          children.props.className
-        ),
-        children: (
-          <>
-            {children.props.children} {trigger}
-          </>
-        ),
-      })
+  const description =
+    isValidElement(children) &&
+    typeof children.type === "string" &&
+    children.type === "p"
+      ? (() => {
+          const element = children as ReactElement<{
+            className?: string;
+            children?: ReactNode;
+          }>;
+          return cloneElement(element, {
+            className: cn(
+              "text-base font-normal text-muted-foreground md:text-lg",
+              paragraphClassName,
+              element.props.className
+            ),
+            children: (
+              <>
+                {element.props.children} {trigger}
+              </>
+            ),
+          });
+        })()
     : (
         <p
           className={cn(
