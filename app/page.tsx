@@ -1,6 +1,7 @@
 import Image from "next/image";
 import About from "./components/about/About";
 import Experience from "./components/experience/Experience";
+import OpenSource from "./components/open-source/OpenSource";
 import { Contact } from "./components/contact/Contact";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
     </section>
     <About />
     <Experience />
+    <OpenSource />
     <Contact />
     </>
   );
