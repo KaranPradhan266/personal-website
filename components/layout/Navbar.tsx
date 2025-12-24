@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "/projects", label: "Projects" },
   { href: "#open-source", label: "Open Source" },
+  { href: "/projects", label: "Projects" },
   { href: "https://www.analyticsvidhya.com/blog/author/karanpradhan266/", label: "Writings" },
   { href: "#contact", label: "Contact" },
 ];
@@ -124,7 +124,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="relative flex items-center gap-2">
-            <button
+            {/* <button
               type="button"
               aria-label="Toggle theme"
               onClick={toggleTheme}
@@ -135,7 +135,7 @@ export default function Navbar() {
               ) : (
                 <Moon className="size-4" aria-hidden="true" />
               )}
-            </button>
+            </button> */}
             <button
               type="button"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
