@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { Timeline } from "@/components/ui/timeline";
 
 const data = [
@@ -91,23 +95,71 @@ Left with a strong appreciation for clean design and thoughtful engineering.
 ];
 
 export default function Experience() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [calloutActive, setCalloutActive] = useState(false);
+  const hasTriggeredRef = useRef(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) {
+      return;
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasTriggeredRef.current) {
+          return;
+        }
+
+        hasTriggeredRef.current = true;
+        timeoutId = setTimeout(() => {
+          setCalloutActive(true);
+        }, 2000);
+        observer.disconnect();
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section aria-label="Experience" className="space-y-4 text-left">
+    <section
+      ref={sectionRef}
+      aria-label="Experience"
+      className="space-y-4 text-left"
+    >
       <h3 className="inline-block border-b-2 border-foreground/60 pb-1">
         Experience
       </h3>
       <div className="relative w-full">
-        <div className="pointer-events-none absolute left-0 top-50 z-10 hidden -translate-x-40 items-center gap-2 text-foreground/70 md:flex">
-          <span
-            className="-rotate-2 text-2xl leading-none"
-            style={{ fontFamily: "var(--font-handwritten)" }}
-          >
-            My current job!
-          </span>
+        <div
+          className={`pointer-events-none absolute left-0 top-50 z-10 hidden -translate-x-40 items-center gap-2 text-foreground/70 transition-opacity duration-700 md:flex ${
+            calloutActive ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <TextGenerateEffect
+            words="My current job!"
+            isActive={calloutActive}
+            className="-rotate-2 font-normal [font-family:var(--font-handwritten)]"
+            wrapperClassName="mt-0"
+            textClassName="text-2xl leading-none tracking-normal text-foreground/70"
+            wordClassName="text-foreground/70"
+          />
           <svg
             aria-hidden="true"
             viewBox="0 0 120 32"
-            className="h-5 w-24 -rotate-6 text-foreground/60"
+            className={`h-5 w-24 -rotate-6 text-foreground/60 transition-opacity duration-500 delay-150 ${
+              calloutActive ? "opacity-100" : "opacity-0"
+            }`}
             fill="none"
           >
             <path
