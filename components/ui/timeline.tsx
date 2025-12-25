@@ -49,7 +49,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.0, ease: "easeInOut" }}
           >
-            <div className="h-10 absolute left-3 w-10 rounded-full bg-background flex items-center justify-center">
+            <div className="absolute left-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-background">
               <div className="h-4 w-4 rounded-full bg-muted border border-border p-2" />
             </div>
             <div className="pl-20 pr-4 w-full">
@@ -85,7 +85,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           </motion.div>
         ))}
         <div
-          className="absolute md:left-8 left-8 top-0 h-full overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-border to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute left-8 top-0 z-0 h-full w-[2px] -translate-x-1/2 overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-border to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
