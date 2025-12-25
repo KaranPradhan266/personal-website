@@ -40,11 +40,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >
         <LoadingGate delayMs={3000}>
-          <div className="min-h-screen bg-background text-foreground">
-            <Navbar />
-            <main className="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:px-8 sm:py-24">
-              {children}
-            </main>
+          <div className="relative min-h-screen overflow-hidden">
+            <div className="pointer-events-none fixed inset-0 z-0 bg-background" />
+            <div className="pointer-events-none fixed inset-0 z-0 [background-size:20px_20px] [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]" />
+            {/* Radial gradient for the container to give a faded look */}
+            <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
+            <div className="relative z-10 text-foreground">
+              <Navbar />
+              <main className="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:px-8 sm:py-24">
+                {children}
+              </main>
+            </div>
           </div>
         </LoadingGate>
         <Analytics />
