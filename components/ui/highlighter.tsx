@@ -38,7 +38,7 @@ export function Highlighter({
   padding = 2,
   multiline = true,
   isView = false,
-  delayMs = 2000,
+  delayMs = 6000,
 }: HighlighterProps) {
   const elementRef = useRef<HTMLSpanElement>(null)
   const annotationRef = useRef<RoughAnnotation | null>(null)

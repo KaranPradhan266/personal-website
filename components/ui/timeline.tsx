@@ -31,7 +31,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start 0.8", "end 0.2"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -41,18 +41,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     <div className="w-full">
       <div ref={containerRef} className="relative w-full pb-20">
         {data.map((item, index) => (
-          <motion.div
-            key={index}
-            className="relative pt-6 md:pt-[18px]"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            whileInView={reduceMotion ? undefined : { opacity: 1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1.0, ease: "easeInOut" }}
-          >
+          <div key={index} className="relative pt-6 md:pt-[18px]">
             <div className="absolute left-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-background">
               <div className="h-4 w-4 rounded-full bg-muted border border-border p-2" />
             </div>
-            <div className="pl-20 pr-4 w-full">
+            <motion.div
+              className="pl-20 pr-4 w-full"
+              initial={reduceMotion ? false : { opacity: 0 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 1.0, ease: "easeInOut" }}
+            >
               <div className="flex flex-wrap items-center gap-2">
                 {item.imageSrc ? (
                   <img
@@ -81,8 +80,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="mt-4 text-justify text-base">
                 {item.content}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         ))}
         <div
           className="absolute left-8 top-0 z-0 h-full w-[2px] -translate-x-1/2 overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-border to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
